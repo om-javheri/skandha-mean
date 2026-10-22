@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skandha-mean.vercel.app/sitemap.xml

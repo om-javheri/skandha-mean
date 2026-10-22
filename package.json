@@ -1,0 +1,24 @@
+{
+  "name": "skandha-mean",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build:client": "npm --prefix client install --no-audit --no-fund && npm --prefix client run build && node -e \"const fs=require('node:fs');fs.rmSync('site',{recursive:true,force:true});fs.cpSync('client/dist','site',{recursive:true})\"",
+    "build": "npm run build:client && tsc",
+    "start": "node --disable-warning=ExperimentalWarning dist/server.js",
+    "dev": "tsc && npm start"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mongodb": "^7.7.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "typescript": "~5.9.0"
+  }
+}
